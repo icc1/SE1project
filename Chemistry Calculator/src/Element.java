@@ -1,4 +1,3 @@
-
 public class Element {
 	private String nameFull;
 	private String nameShort;
