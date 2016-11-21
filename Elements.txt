@@ -1,0 +1,120 @@
+Symbol,Name,Etymology,AtomicNumber,AtomicMass,Group,Period,Family
+Ac,Actinium,from Greek aktinos,89,[227],,7,Rare Earth Actinide
+Ag,Silver,Latin argentum,47,107.8682,11,5,Transition Metals
+Al,Aluminium (Aluminum),Latin alumen,13,26.9815386,13,3,Other Metals
+Am,Americium,the Americas,95,[243],,7,Rare Earth Actinide
+Ar,Argon,Greek argon,18,39.948,18,3,Nobel Gases
+As,Arsenic,Greek arsenikos,33,74.92160,15,4,Metalloids
+At,Astatine,Greek astatos,85,[210],17,6,Halogens
+Au,Gold,Latin aurum,79,196.966569,11,6,Transition Metals
+B,Boron,borax,5,10.811,13,2,Metalloids
+Ba,Barium,Greek barys,56,137.327,2,6,Alkaline Earth Metals
+Be,Beryllium,beryl,4,9.012182,2,2,Alkaline Earth Metals
+Bh,Bohrium,Niels Bohr,107,[264],7,7,Transition Metals
+Bi,Bismuth,from German wissmuth,83,208.98040,15,6,Other Metals
+Bk,Berkelium,Berkeley, California,97,[247],,7,Rare Earth Actinide
+Br,Bromine,Greek bromos,35,79.904,17,4,Halogens
+C,Carbon,Latin carbo,6,12.0107,14,2,Non-Metals
+Ca,Calcium,Latin calx,20,40.078,2,4,Alkaline Earth Metals
+Cd,Cadmium,from Greek kadmia,48,12.411,12,5,Transition Metals
+Ce,Cerium,Ceres,58,140.116,,6,Rare Earth Lanthanide
+Cf,Californium,State and University of California,98,[251],,7,Rare Earth Actinide
+Cl,Chlorine,Greek chloros,17,35.453,17,3,Halogens
+Cm,Curium,Pierre and Marie Curie and the traditional -um ending,96,[247],,7,Rare Earth Actinide
+Cn,Copernicium,Nicolaus Copernicus,112,[285],12,7,Transition Metals
+Co,Cobalt,from German kobold,27,58.933195,9,4,Transition Metals
+Cr,Chromium,Greek chroma,24,51.9961,6,4,Transition Metals
+Cs,Caesium (Cesium),Latin caesius,55,132.9054519,1,6,Alkali Metals
+Cu,Copper,Latin Cuprum,29,63.546,11,4,Transition Metals
+Db,Dubnium,Dubna, Russia,105,[262],5,7,Transition Metals
+Ds,Darmstadtium,Darmstadt, Germany,110,[271],10,7,Transition Metals
+Dy,Dysprosium,Greek dysprositos,66,162.500,,6,Rare Earth Lanthanide
+Er,Erbium,Ytterby, Sweden,68,167.259,,6,Rare Earth Lanthanide
+Es,Einsteinium,Albert Einstein,99,[252],,7,Rare Earth Actinide
+Eu,Europium,Europe,63,151.964,,6,Rare Earth Lanthanide
+F,Fluorine,Latin fluo,9,18.9984032,17,2,Halogens
+Fe,Iron,Latin ferrum,26,55.845,8,4,Transition Metals
+Fm,Fermium,Enrico Fermi,100,[257],,7,Rare Earth Actinide
+Fr,Francium,France,87,[223],1,7,Alkali Metals
+Ga,Gallium,Latin Gallia,31,69.723,13,4,Other Metals
+Gd,Gadolinium,gadolinite,64,157.25,,6,Rare Earth Lanthanide
+Ge,Germanium,Germany,32,72.64,14,4,Metalloids
+H,Hydrogen,Greek hydrogenes,1,1.00794,1,1,Non-Metals
+He,Helium,Greek helios,2,4.002602,18,1,Nobel Gases
+Hf,Hafnium,Latin Hafnia,72,178.49,4,6,Transition Metals
+Hg,Mercury,Latin hydrargyrum,80,200.59,12,6,Transition Metals
+Ho,Holmium,Latin Holmia,67,164.930 32,,6,Rare Earth Lanthanide
+Hs,Hassium,Hesse, Germany,108,[277],8,7,Transition Metals
+I,Iodine,Greek ioeides,53,126.904 47,17,5,Halogens
+In,Indium,indigo blue,49,114.818,13,5,Other Metals
+Ir,Iridium,Greek iris,77,192.217,9,6,Transition Metals
+K,Potassium (Kalium),Latin kalium,19,39.0983,1,4,Alkali Metals
+Kr,Krypton,Greek kryptos,36,83.798,18,4,Nobel Gases
+La,Lanthanum,Greek lanthanien,57,138.90547,,6,Rare Earth Lanthanide
+Li,Lithium,Greek lithos,3,6.941,1,2,Alkali Metals
+Lr,Lawrencium,Ernest O. Lawrence,103,[262],3,7,Rare Earth Actinide
+Lu,Lutetium,Latin Lutetia,71,174.967,3,6,Rare Earth Lanthanide
+Md,Mendelevium,Dmitri Mendeleyev,101,[258],,7,Rare Earth Actinide
+Mg,Magnesium,Magnesia, Greece,12,24.3050,2,3,Alkaline Earth Metals
+Mn,Manganese,Latin magnes,25,54.938045,7,4,Transition Metals
+Mo,Molybdenum,Greek molybdos,42,95.94,6,5,Transition Metals
+Mt,Meitnerium,Lise Meitner,109,[268],9,7,Transition Metals
+N,Nitrogen,Greek nitron,7,14.0067,15,2,Non-Metals
+Na,Sodium,Latin natrium,11,22.98976928,1,3,Alkali Metals
+Nb,Niobium,Niobe,41,92.906 38,5,5,Transition Metals
+Nd,Neodymium,Greek neos didymos,60,144.242,,6,Rare Earth Lanthanide
+Ne,Neon,Greek neos,10,20.1797,18,2,Nobel Gases
+Ni,Nickel,German kupfernickel,28,58.6934,10,4,Transition Metals
+No,Nobelium,Alfred Nobel,102,[259],,7,Rare Earth Actinide
+Np,Neptunium,Neptune,93,[237],,7,Rare Earth Actinide
+O,Oxygen,Greek oxys,8,15.9994,16,2,Non-Metals
+Os,Osmium,Greek osme,76,190.23,8,6,Transition Metals
+P,Phosphorus,Greek phosphoros,15,230.973762,15,3,Non-Metals
+Pa,Protactinium,Greek protos and actinium,91,231.03588,,7,Rare Earth Actinide
+Pb,Lead,Latin plumbum,82,207.2,14,6,Other Metals
+Pd,Palladium,Pallas (genitive Pallados),46,106.42,10,5,Transition Metals
+Pm,Promethium,Prometheus,61,[145],,6,Rare Earth Lanthanide
+Po,Polonium,Poland,84,[210],16,6,Metalloids
+Pr,Praseodymium,Greek prasios,59,140.90765,,6,Rare Earth Lanthanide
+Pt,Platinum,Greek platina,78,195.084,10,6,Transition Metals
+Pu,Plutonium,Pluto,94,[244],,7,Rare Earth Actinide
+Ra,Radium,Latin radius,88,[226],2,7,Alkaline Earth Metals
+Rb,Rubidium,Latin rubidus,37,85.4678,1,5,Alkali Metals
+Re,Rhenium,German Rheinprovinz,75,186.207,7,6,Transition Metals
+Rf,Rutherfordium,Ernest Rutherford,104,261,4,7,Transition Metals
+Rh,Rhodium,Greek rhodon,45,102.905 50,9,5,Transition Metals
+Rn,Radon,radium and emanation,86,[220],18,6,Nobel Gases
+Ru,Ruthenium,Latin Ruthenia,44,101.07,8,5,Transition Metals
+S,Sulfur (Sulphur),Latin sulfur,16,32.065,16,3,Non-Metals
+Sb,Antimony,Latin stibium,51,121.760,15,5,Metalloids
+Sc,Scandium,Scandinavia,21,44.955912,3,4,Transition Metals
+Se,Selenium,Greek selene,34,78.96,16,4,Non-Metals
+Sg,Seaborgium,Glenn T. Seaborg,106,[266],6,7,Transition Metals
+Si,Silicon,Latin silex,14,28.0855,14,3,Metalloids
+Sm,Samarium,samarskite,62,150.36,,6,Rare Earth Lanthanide
+Sn,Tin,Latin stannum,50,118.710,14,5,Other Metals
+Sr,Strontium,Gaelic Strontian,38,87.62,2,5,Alkaline Earth Metals
+Ta,Tantalum,King Tantalus,73,180.94788,5,6,Transition Metals
+Tb,Terbium,Ytterby, Sweden,65,158.92535,,6,Rare Earth Lanthanide
+Tc,Technetium,Greek technetos,43,[98],7,5,Transition Metals
+Te,Tellurium,Greek tellus,52,127.60,16,5,Metalloids
+Th,Thorium,Thor,90,232.03806,,7,Rare Earth Actinide
+Ti,Titanium,the Titans,22,47.867,4,4,Transition Metals
+Tl,Thallium,Greek thallos,81,204.3833,13,6,Other Metals
+Tm,Thulium,Thule and the traditional -ium ending,69,168.93421,,6,Rare Earth Lanthanide
+U,Uranium,Uranus,92,238.02891,,7,Rare Earth Actinide
+Uuh,Ununhexium,Latin uni, uni, and Greek hex,116,[292],16,7,Transition Metals
+Uuo,Ununoctium,Latin uni, uni, and oct,118,[294],18,7,Nobel Gases
+Uup,Ununpentium,Latin uni, uni, and Greek pent,115,[288],15,7,Transition Metals
+Uuq,Ununquadium,Latin uni, uni, and quadr,114,[289],14,7,Transition Metals
+Uus,Ununseptium,Latin uni, uni, and Greek sept,117,[295],17,7,Metalloids
+Uut,Ununtrium,Latin uni, uni, and Greek tri,113,[284],13,7,Transition Metals
+Uuu (Rg),Unununium (Roentgenium),Un (one) un (one) un (one) ium 
+(Wilhelm Conrad Röntgen),111,[272],11,7,Transition Metals
+V,Vanadium,Vanadis,23,50.9415,5,4,Transition Metals
+W,Tungsten,German wolfram,74,183.84,6,6,Transition Metals
+Xe,Xenon,Greek xenos,54,131.293,18,5,Nobel Gases
+Y,Yttrium,Ytterby, Sweden,39,88.90585,3,5,Transition Metals
+Yb,Ytterbium,Ytterby, Sweden,70,173.04,,6,Rare Earth Lanthanide
+Zn,Zinc,German zink,30,65.409,12,4,Transition Metals
+Zr,Zirconium,zircon,40,91.224,4,5,Transition Metals
