@@ -1,9 +1,14 @@
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -13,6 +18,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 public class CalcWindow extends JFrame
 {
@@ -79,7 +85,7 @@ public class CalcWindow extends JFrame
 		
 		//Setting up the main calculator frame
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setSize(400,600); 
+	    //setSize(400,600); 
 	    setLayout(new GridBagLayout());
 	    GridBagConstraints c = new GridBagConstraints();
 	    
@@ -126,6 +132,18 @@ public class CalcWindow extends JFrame
 	     
 	    screenPanel = new JPanel();
 	    calcScreen = new JTextField();
+	    calcScreen.setPreferredSize(new Dimension(400, 100));
+	    calcScreen.setFont(new Font("SansSerif", Font.BOLD, 20));
+	    calcScreen.addKeyListener(new KeyAdapter() {
+	    	   public void keyTyped(KeyEvent e) {
+	    		      char c = e.getKeyChar();
+	    		      if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)
+	    		    	  && (c != '*') && (c != '/') && (c != '+') && (c != '-') 
+	    		    	  && (c != '.') && (c != '(') && (c != ')')){
+	    		         e.consume();  // ignore event
+	    		      }
+	    		   }
+	    		});
 	    screenPanel.add(calcScreen);
 	    c.gridy = 1;
 	    add(screenPanel, c);
@@ -412,7 +430,8 @@ public class CalcWindow extends JFrame
     			//input .
     		}
     	});
-		utilEqualsBttn = new JButton("=");
+		utilEqualsBttn = new JButton("Enter");
+		utilEqualsBttn.setBackground(Color.YELLOW);
 		utilEqualsBttn.addActionListener(new ActionListener()
     	{
     		@Override
