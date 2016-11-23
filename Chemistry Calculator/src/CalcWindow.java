@@ -97,12 +97,14 @@ public class CalcWindow extends JFrame
 	    chemBar.add(chemMenu);
 	      
 	    //Initializing the chemistry menu items, adding their events and adding them to the menu
+	    PeriodicWindow p = new PeriodicWindow();
 	    periodicItem = new JMenuItem("Periodic Table");
 	    periodicItem.addActionListener(new ActionListener()
 	    	{
 	    		@Override
 	    		public void actionPerformed(ActionEvent e) {
-	    			//launch periodic table
+	    			if(!p.isVisible())
+	    				p.setVisible(true);
 	    		}
 	    	});
 	    molarMassItem = new JMenuItem("Molar Mass Calculator");
