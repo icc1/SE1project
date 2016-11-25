@@ -4,6 +4,9 @@ public class Element
     private String nameShort;
     private int atomicNumber;
     private double atomicWeight;
+    private int elementGroup;
+    private int elementPeriod;
+    private String elementFamily;
 	   
 	   
 
@@ -23,6 +26,18 @@ public class Element
     {
         return atomicWeight;
     }
+    public int getElementGroup()
+    {
+        return elementGroup;
+    }
+    public int getElementPeriod()
+    {
+        return elementPeriod;
+    }
+    public String getElementFamily()
+    {
+        return elementFamily;
+    }
     public void setFullName(String name)
     {
         nameFull = name;
@@ -38,5 +53,17 @@ public class Element
     public void setAtmoicWeight(double number)
     {
         atomicWeight = number;
+    }
+    public void setElementGroup(int group)
+    {
+        elementGroup = group;
+    }
+    public void setElementPeriod(int period)
+    {
+        elementPeriod = period;
+    }
+    public void setElementFamily(String family)
+    {
+        elementFamily = family;
     }
 }
