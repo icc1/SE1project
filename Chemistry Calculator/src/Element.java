@@ -7,9 +7,15 @@ public class Element
     private int elementGroup;
     private int elementPeriod;
     private String elementFamily;
-	   
-	   
-
+	
+    public Element()
+    {
+    	setFullName("");
+    	setShortName("");
+    	setAtomicNumber(0);
+    	setAtmoicWeight(0);
+    }
+    
     public String getFullName()
     {
         return nameFull;
