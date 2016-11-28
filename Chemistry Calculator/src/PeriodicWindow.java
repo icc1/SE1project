@@ -20,14 +20,11 @@ public class PeriodicWindow extends JFrame
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		
-		Element[] element = new Element[118];
-		element = ElementImporter.elementArrayBuilder();
-		
 		elementPanel = new JPanel();
 		elementPanel.setLayout(new GridBagLayout());
 		
 		miscLabels = new JLabel[3];//0 = blank, 1 = "57-71", 2 = "89-103"
-		miscLabels[0] = new JLabel("");
+		miscLabels[0] = new JLabel(" ");
 		miscLabels[1] = new JLabel("57-71");
 		miscLabels[2] = new JLabel("89-103");
 		
@@ -74,9 +71,9 @@ public class PeriodicWindow extends JFrame
 				}
 				else if(i == 7 && j == 0)
 				{
-					constraints.gridwidth = 18;
+					constraints.gridwidth = GridBagConstraints.REMAINDER;
 					elementPanel.add(miscLabels[0], constraints);
-					j += 17;
+					j += 18;
 					resetConstraints();
 				}
 				else if(i == 8 && j == 0)
@@ -96,7 +93,7 @@ public class PeriodicWindow extends JFrame
 				else if(k < 118)
 				{
 					
-					elementButton[k] = new JButton(element[k].getShortName());
+					elementButton[k] = new JButton(PeriodicTable.getElement(k).getShortName());
 					elementPanel.add(elementButton[k], constraints);
 					
 					if(k == 55)
