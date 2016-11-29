@@ -19,6 +19,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 
 public class CalcWindow extends JFrame
@@ -32,6 +33,8 @@ public class CalcWindow extends JFrame
 	
 	private JPanel screenPanel;
 	private JTextField calcScreen;
+	private JTextField resultArea;
+	private double result = 0.0;
 	
 	private JPanel buttonPanel;
 	GenericListener basic = new GenericListener();
@@ -138,8 +141,10 @@ public class CalcWindow extends JFrame
 	    //Moving down from the menu bar
 	     
 	    screenPanel = new JPanel();
+	    screenPanel.setLayout(new GridBagLayout());
+	    
 	    calcScreen = new JTextField("");
-	    calcScreen.setPreferredSize(new Dimension(400, 100));
+	    calcScreen.setPreferredSize(new Dimension(400, 70));
 	    calcScreen.setFont(new Font("SansSerif", Font.BOLD, 20));
 	    calcScreen.addKeyListener(new KeyAdapter() {
 	    	   public void keyTyped(KeyEvent e) {
@@ -151,8 +156,18 @@ public class CalcWindow extends JFrame
 	    		      }
 	    		   }
 	    		});
-	    screenPanel.add(calcScreen);
+	    c.gridy = 0;
+	    screenPanel.add(calcScreen, c);
+	    
+	    resultArea = new JTextField(" = ");
+	    resultArea.setEditable(false);
+	    resultArea.setBackground(null);
+	    resultArea.setBorder(null);
+	    resultArea.setFont(new Font("SansSerif", Font.BOLD, 20));
+	    resultArea.setPreferredSize(new Dimension(400, 30));
 	    c.gridy = 1;
+	    screenPanel.add(resultArea, c);
+	    
 	    //screenPanel.setPreferredSize(new Dimension(400, 200));
 	    add(screenPanel, c);
 	    
@@ -318,7 +333,7 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			System.out.println(Calculator.eval(calcScreen.getText()));
+    			resultArea.setText(String.format(" = %1$.4f", Calculator.eval(calcScreen.getText())));
     		}
     	});
 		operatorAddBttn = new JButton("+");
