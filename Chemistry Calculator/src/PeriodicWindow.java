@@ -31,7 +31,7 @@ public class PeriodicWindow extends JFrame
 		super("Periodic Table");
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds (416, 0, 400, 600);
+		setBounds (413, 0, 400, 600);
 		setLayout(new GridBagLayout());
 		
 		PeriodicListener p = new PeriodicListener();
