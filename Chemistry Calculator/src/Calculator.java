@@ -2,33 +2,33 @@ import java.lang.Math;
 
 public class Calculator 
 {
-    public static double cos(double a)
+    public double cos(double a)
     {
-        return a;
+        return Math.cos(a);
     }
     
-    public static double tan(double a)
+    public double tan(double a)
     {
-        return a;
+        return Math.tan(a);
     }
     
-    public static double sin(double a)
+    public double sin(double a)
     {
-        return a;
+        return Math.sin(a);
     }
     
-    public static double log(double a)
+    public double log(double a)
     {
-        return a;
+        return Math.log(a);
     }
     
-    public static double log10(double a)
+    public double log10(double a)
     {
-        return a;
+        return Math.log10(a);
     }
     
     public double exp(double base, double power)
     {
-        return a;
+        return Math.pow(base, power);
     }
 }
