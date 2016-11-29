@@ -16,6 +16,7 @@ public class ElementImporter {
 				PeriodicTable.getElement(i).setAtomicNumber(Integer.parseInt(fread.next()));
 				PeriodicTable.getElement(i).setAtmoicWeight(Double.parseDouble(fread.nextLine()));
 			}
+			fread.close();
 		} 
 		catch (FileNotFoundException e) 
 		{

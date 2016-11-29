@@ -1,5 +1,11 @@
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,14 +17,23 @@ public class PeriodicWindow extends JFrame
 	JButton[] elementButton;
 	JLabel[] miscLabels;
 	GridBagConstraints constraints;
+	GridBagConstraints infoPanelConstraints;
 	JPanel elementPanel;
+	
 	JPanel infoPanel;
+	JLabel infoShortName;
+	JLabel infoName;
+	JLabel infoAtomicNumber;
+	JLabel infoAtomicWeight;
 	
 	public PeriodicWindow()
 	{
 		super("Periodic Table");
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setLayout(new GridBagLayout());
+		
+		PeriodicListener p = new PeriodicListener();
 		
 		elementPanel = new JPanel();
 		elementPanel.setLayout(new GridBagLayout());
@@ -71,9 +86,11 @@ public class PeriodicWindow extends JFrame
 				}
 				else if(i == 7 && j == 0)
 				{
-					constraints.gridwidth = GridBagConstraints.REMAINDER;
+					constraints.gridwidth = 18;
+					constraints.fill = GridBagConstraints.BOTH;
 					elementPanel.add(miscLabels[0], constraints);
-					j += 18;
+					
+					j += 17;
 					resetConstraints();
 				}
 				else if(i == 8 && j == 0)
@@ -93,10 +110,11 @@ public class PeriodicWindow extends JFrame
 				else if(k < 118)
 				{
 					
-					elementButton[k] = new JButton(PeriodicTable.getElement(k).getShortName());
+					elementButton[k] = new JButton("<HTML>"+PeriodicTable.getElement(k).getAtomicNumber()+"<br>"+PeriodicTable.getElement(k).getShortName()+"</HTML>");
+					elementButton[k].setName(""+k);
+					elementButton[k].addActionListener(p);
 					elementPanel.add(elementButton[k], constraints);
-					
-					if(k == 55)
+					if(k == 55)//skip conditions due to radioactive elements
 					{
 						k = 71;
 					}
@@ -117,12 +135,87 @@ public class PeriodicWindow extends JFrame
 				}
 			}
 		}
-		add(elementPanel);
+		
+		Font font = new Font("Arial", Font.PLAIN, 24);
+	    for (Component comp : elementPanel.getComponents()) {
+	        if (comp instanceof JButton) {
+	            ((JButton)comp).setFont(font);
+	        }
+	        else
+	        	((JLabel)comp).setFont(font);
+	    }
+	    
+	    constraints.gridx = 0;
+		constraints.gridy = 0;
+		add(elementPanel, constraints);
+		
+		constraints.gridx = 1;
+		constraints.gridy = 0;
+		infoPanelBuilder();
+		add(infoPanel, constraints);
+		
+		infoPanelGetInfo(1);
+		
 		pack();
 		setVisible(true);
 	}
 	private void resetConstraints()
 	{
 		constraints.gridwidth = 1;
+		constraints.fill = GridBagConstraints.BOTH;
+	}
+	private void infoPanelBuilder()
+	{
+		infoPanelConstraints = new GridBagConstraints();
+		infoPanelConstraints.fill = GridBagConstraints.BOTH;
+		
+		infoPanelConstraints.gridx = 0;
+		infoPanelConstraints.gridy = 0;
+		infoPanel = new JPanel();
+		infoPanel.setLayout(new GridBagLayout());
+		
+		infoShortName = new JLabel("<HTML><b><u>  </u></b></HTML>");
+		infoShortName.setFont(new Font("Arial", Font.PLAIN, 48));
+		infoPanel.add(infoShortName);
+		
+		Font infoPanelFont = new Font("Arial", Font.PLAIN, 20);
+		
+		infoName = new JLabel("<HTML><b>Name:</b></HTML>");
+		infoName.setFont(infoPanelFont);
+		
+		infoAtomicNumber = new JLabel("<HTML><b>Atomic Number:</b></HTML>");
+		infoAtomicNumber.setFont(infoPanelFont);
+		
+		infoAtomicWeight = new JLabel("<HTML><b>Atomic Weight:</b></HTML>");
+		infoAtomicWeight.setFont(infoPanelFont);
+		
+		infoPanel.add(infoShortName, infoPanelConstraints);
+		
+		infoPanelConstraints.gridy = 1;
+		infoPanel.add(infoName, infoPanelConstraints);
+		
+		infoPanelConstraints.gridy = 2;
+		infoPanel.add(infoAtomicNumber, infoPanelConstraints);
+		
+		infoPanelConstraints.gridy = 3;
+		infoPanel.add(infoAtomicWeight, infoPanelConstraints);
+	}
+	private void infoPanelGetInfo(int i)
+	{
+		infoShortName.setText("<HTML><b><u>  "+ PeriodicTable.getElement(i).getShortName() +"</u></b></HTML>");
+		infoName.setText("<HTML><b> Name:</b>" + PeriodicTable.getElement(i).getFullName() + "</HTML>");
+		infoAtomicNumber.setText("<HTML><b> Atomic Number:</b>" + PeriodicTable.getElement(i).getAtomicNumber() + "</HTML>");
+		infoAtomicWeight.setText("<HTML><b> Atomic Weight:</b>" + PeriodicTable.getElement(i).getAtomicWeight() + "</HTML>");
+	}
+	
+	private class PeriodicListener implements ActionListener 
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() instanceof JButton) {
+				infoPanelGetInfo((Integer.parseInt(((JButton)e.getSource()).getName())));
+            }
+			
+		}
 	}
 }

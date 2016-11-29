@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -85,7 +86,7 @@ public class CalcWindow extends JFrame
 		
 		//Setting up the main calculator frame
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    //setSize(400,600); 
+	    setSize(400,600); 
 	    setLayout(new GridBagLayout());
 	    GridBagConstraints c = new GridBagConstraints();
 	    
@@ -148,11 +149,12 @@ public class CalcWindow extends JFrame
 	    		});
 	    screenPanel.add(calcScreen);
 	    c.gridy = 1;
+	    //screenPanel.setPreferredSize(new Dimension(400, 200));
 	    add(screenPanel, c);
 	    
 	    buttonPanel = new JPanel();
 	    buttonPanel.setLayout(new GridLayout(6, 5));
-	    
+	    buttonPanel.setPreferredSize(new Dimension(400,300));
 	    createKeyRows();
 	    
 	    c.gridy = 2;
@@ -168,6 +170,13 @@ public class CalcWindow extends JFrame
 	    createKeyRow4();
 	    createKeyRow5();
 	    createKeyRow6();
+	    
+	    Font font = new Font("Arial", Font.PLAIN, 24);
+	    for (Component comp : buttonPanel.getComponents()) {
+	        if (comp instanceof JButton) {
+	            ((JButton)comp).setFont(font);
+	        }
+	    }
 	}
 	private void createKeyRow1()
 	{
@@ -432,7 +441,7 @@ public class CalcWindow extends JFrame
     			//input .
     		}
     	});
-		utilEqualsBttn = new JButton("Enter");
+		utilEqualsBttn = new JButton("=");
 		utilEqualsBttn.setBackground(Color.YELLOW);
 		utilEqualsBttn.addActionListener(new ActionListener()
     	{
