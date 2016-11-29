@@ -158,7 +158,7 @@ public class CalcWindow extends JFrame
 	    
 	    buttonPanel = new JPanel();
 	    buttonPanel.setLayout(new GridLayout(6, 5));
-	    buttonPanel.setPreferredSize(new Dimension(400,300));
+	    buttonPanel.setPreferredSize(new Dimension(400,378));
 	    createKeyRows();
 	    
 	    c.gridy = 2;
