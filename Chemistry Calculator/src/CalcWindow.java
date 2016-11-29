@@ -34,13 +34,16 @@ public class CalcWindow extends JFrame
 	private JTextField calcScreen;
 	
 	private JPanel buttonPanel;
+	GenericListener basic = new GenericListener();
+	FunctionListener func = new FunctionListener();
 	
 	//Row 1
 	private JButton functionExpBttn;
 	private JButton functionSinBttn;
 	private JButton functionCosBttn;
 	private JButton functionTanBttn;
-	private JButton unknownBttn;
+	private JButton undoButton;
+	private String prevString;
 	
 	//Row 2
 	private JButton functionRootBttn;
@@ -65,6 +68,7 @@ public class CalcWindow extends JFrame
 	
 	//Row 5
 	private JButton utilMemStoreBttn;
+	private double mem;
 	private JButton num1Bttn;
 	private JButton num2Bttn;
 	private JButton num3Bttn;
@@ -134,7 +138,7 @@ public class CalcWindow extends JFrame
 	    //Moving down from the menu bar
 	     
 	    screenPanel = new JPanel();
-	    calcScreen = new JTextField();
+	    calcScreen = new JTextField("");
 	    calcScreen.setPreferredSize(new Dimension(400, 100));
 	    calcScreen.setFont(new Font("SansSerif", Font.BOLD, 20));
 	    calcScreen.addKeyListener(new KeyAdapter() {
@@ -162,6 +166,7 @@ public class CalcWindow extends JFrame
 	    pack();
 	    setVisible(true);
 	}
+	
 	private void createKeyRows()
 	{
 		createKeyRow1();
@@ -182,83 +187,45 @@ public class CalcWindow extends JFrame
 	{
 		//creating the buttons for the first row
 	    functionExpBttn = new JButton("^");
-	    functionExpBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//do exponentiation
-    		}
-    	});
+	    functionExpBttn.addActionListener(basic);
 	    functionSinBttn = new JButton("sin");
-	    functionSinBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//do sin
-    		}
-    	});
+	    functionSinBttn.addActionListener(func);
 	    functionCosBttn = new JButton("cos");
-	    functionCosBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//do cos
-    		}
-    	});
+	    functionCosBttn.addActionListener(func);
 	    functionTanBttn = new JButton("tan");
-	    functionTanBttn.addActionListener(new ActionListener()
+	    functionTanBttn.addActionListener(func);
+	    undoButton = new JButton("undo");
+	    undoButton.addActionListener(new ActionListener()
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//do tan
-    		}
-    	});
-	    unknownBttn = new JButton(" ");
-	    unknownBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//blank?
+    			calcScreen.setText(prevString);
     		}
     	});
 	    buttonPanel.add(functionExpBttn);
 	    buttonPanel.add(functionSinBttn);
 	    buttonPanel.add(functionCosBttn);
 	    buttonPanel.add(functionTanBttn);
-	    buttonPanel.add(unknownBttn);
+	    buttonPanel.add(undoButton);
 	}
 	private void createKeyRow2()
 	{
 		functionRootBttn = new JButton("sqrt");
-	    functionRootBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//do root
-    		}
-    	});
+	    functionRootBttn.addActionListener(func);
 	    inputParLBttn = new JButton("(");
-	    inputParLBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input (
-    		}
-    	});
+	    inputParLBttn.addActionListener(basic);
 	    inputParRBttn = new JButton(")");
-	    inputParRBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input )
-    		}
-    	});
+	    inputParRBttn.addActionListener(basic);
 	    utilBackspaceBttn = new JButton("<-");
 	    utilBackspaceBttn.addActionListener(new ActionListener()
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//backspace
+    			String s = calcScreen.getText();
+    			if (s.length() != 0) {
+    			      s = s.substring(0, s.length()-1);
+    			      calcScreen.setText(s);
+    			    }
     		}
     	});
 	    utilClearBttn = new JButton("C");
@@ -266,7 +233,7 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//clear
+    			calcScreen.setText("");
     		}
     	});
 	    buttonPanel.add(functionRootBttn);
@@ -277,45 +244,15 @@ public class CalcWindow extends JFrame
 	}
 	private void createKeyRow3(){
 		functionLogBttn = new JButton("log");
-		functionLogBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//do root
-    		}
-    	});
+		functionLogBttn.addActionListener(func);
 		num7Bttn = new JButton("7");
-		num7Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 7
-    		}
-    	});
+		num7Bttn.addActionListener(basic);
 		num8Bttn = new JButton("8");
-		num8Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 8
-    		}
-    	});
+		num8Bttn.addActionListener(basic);
 		num9Bttn = new JButton("9");
-		num9Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 9
-    		}
-    	});
+		num9Bttn.addActionListener(basic);
 		operatorDivideBttn = new JButton("/");
-		operatorDivideBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//divide
-    		}
-    	});
+		operatorDivideBttn.addActionListener(basic);
 	    buttonPanel.add(functionLogBttn);
 	    buttonPanel.add(num7Bttn);
 	    buttonPanel.add(num8Bttn);
@@ -324,45 +261,15 @@ public class CalcWindow extends JFrame
 	}
 	private void createKeyRow4(){
 		functionNaturalLogBttn = new JButton("ln");
-		functionNaturalLogBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//do natural log
-    		}
-    	});
+		functionNaturalLogBttn.addActionListener(func);
 		num4Bttn = new JButton("4");
-		num4Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 4
-    		}
-    	});
+		num4Bttn.addActionListener(basic);
 		num5Bttn = new JButton("5");
-		num5Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 5
-    		}
-    	});
+		num5Bttn.addActionListener(basic);
 		num6Bttn = new JButton("6");
-		num6Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 6
-    		}
-    	});
+		num6Bttn.addActionListener(basic);
 		operatorMultiplyBttn = new JButton("*");
-		operatorMultiplyBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//multiply
-    		}
-    	});
+		operatorMultiplyBttn.addActionListener(basic);
 	    buttonPanel.add(functionNaturalLogBttn);
 	    buttonPanel.add(num4Bttn);
 	    buttonPanel.add(num5Bttn);
@@ -375,41 +282,17 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//do root
+    			//mem store
     		}
     	});
 		num1Bttn = new JButton("1");
-		num1Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 1
-    		}
-    	});
+		num1Bttn.addActionListener(basic);
 		num2Bttn = new JButton("2");
-		num2Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 2
-    		}
-    	});
+		num2Bttn.addActionListener(basic);
 		num3Bttn = new JButton("3");
-		num3Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 3
-    		}
-    	});
+		num3Bttn.addActionListener(basic);
 		operatorSubtractBttn = new JButton("-");
-		operatorSubtractBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//subtract
-    		}
-    	});
+		operatorSubtractBttn.addActionListener(basic);
 	    buttonPanel.add(utilMemStoreBttn);
 	    buttonPanel.add(num1Bttn);
 	    buttonPanel.add(num2Bttn);
@@ -426,43 +309,57 @@ public class CalcWindow extends JFrame
     		}
     	});
 		num0Bttn = new JButton("0");
-		num0Bttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input 0
-    		}
-    	});
+		num0Bttn.addActionListener(basic);
 		inputDecBttn = new JButton(".");
-		inputDecBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			//input .
-    		}
-    	});
+		inputDecBttn.addActionListener(basic);
 		utilEqualsBttn = new JButton("=");
 		utilEqualsBttn.setBackground(Color.YELLOW);
 		utilEqualsBttn.addActionListener(new ActionListener()
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//COMPUTE!
+    			System.out.println(Calculator.eval(calcScreen.getText()));
     		}
     	});
 		operatorAddBttn = new JButton("+");
-		operatorAddBttn.addActionListener(new ActionListener()
-    	{
-    		@Override
-    		public void actionPerformed(ActionEvent e) {
-    			System.out.println("test!");
-    		}
-    	});
+		operatorAddBttn.addActionListener(basic);
 	    buttonPanel.add(utilMemRecallBttn);
 	    buttonPanel.add(num0Bttn);
 	    buttonPanel.add(inputDecBttn);
 	    buttonPanel.add(utilEqualsBttn);
 	    buttonPanel.add(operatorAddBttn);
+	}
+	
+	private String app(String base, String add)
+	{
+		StringBuilder screenStringBuilder = new StringBuilder();
+		screenStringBuilder.append(base);
+		screenStringBuilder.append(add);
+		return screenStringBuilder.toString();
+	}
+	
+	private class GenericListener implements ActionListener 
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() instanceof JButton) {
+				prevString = calcScreen.getText();
+				calcScreen.setText(app(calcScreen.getText(), ((JButton)e.getSource()).getText()));
+            }
+			
+		}
+	}
+	private class FunctionListener implements ActionListener 
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() instanceof JButton) {
+				prevString = calcScreen.getText();
+    			calcScreen.setText(app(calcScreen.getText(), ((JButton)e.getSource()).getText()));
+    			calcScreen.setText(app(calcScreen.getText(), "("));
+            }
+			
+		}
 	}
 	
 }
