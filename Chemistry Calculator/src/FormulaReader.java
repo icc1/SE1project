@@ -22,9 +22,9 @@ public class FormulaReader
 				equation.append(PeriodicTable.findElement(element.toString()).getAtomicWeight());
 				//equation.append(element.toString());
 				element.setLength(0);
-				if(!Character.isDigit(formula.charAt(i)) && i != formula.length() && formula.charAt(i) != ')') 
+				if(i != formula.length() && !Character.isDigit(formula.charAt(i)) && formula.charAt(i) != ')') 
 					equation.append("+");
-				else if(Character.isDigit(formula.charAt(i)))
+				else if(i < formula.length() && Character.isDigit(formula.charAt(i)))
 					equation.append("*");
 			}
 			if(i < formula.length() && Character.isDigit(formula.charAt(i)))
