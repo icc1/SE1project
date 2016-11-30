@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ElementImporter {
-	public static void elementArrayBuilder()
+	public void elementArrayBuilder()
 	{
 		try 
 		{

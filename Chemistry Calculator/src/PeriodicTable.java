@@ -9,7 +9,8 @@ public class PeriodicTable {
 		{
 		    elements[i] = new Element();
 		}
-		ElementImporter.elementArrayBuilder();
+		ElementImporter e = new ElementImporter();
+		e.elementArrayBuilder();
 	}
 	
 	public static Element getElement(int i)
@@ -17,4 +18,13 @@ public class PeriodicTable {
 		return elements[i];
 	}
 	
+	public static Element findElement(String shortName)
+	{
+		for(int i = 0; i < 118; i++)
+		{
+			if(elements[i].getShortName() == shortName)
+				return elements[i];
+		}
+		return null;
+	}
 }
