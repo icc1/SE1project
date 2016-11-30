@@ -42,9 +42,9 @@ H Hydrogen 1 1.00794
 He Helium 2 4.002602
 Hf Hafnium 72 178.49
 Hg Mercury 80 200.59
-Ho Holmium 67 164.930 32
+Ho Holmium 67 164.93032
 Hs Hassium 108 277
-I Iodine 53 126.904 47
+I Iodine 53 126.90447
 In Indium 49 114.818
 Ir Iridium 77 192.217
 K Potassium 19 39.0983
@@ -81,7 +81,7 @@ Ra Radium 88 226
 Rb Rubidium 37 85.4678
 Re Rhenium 75 186.207
 Rf Rutherfordium 104 261
-Rh Rhodium 45 102.905 50
+Rh Rhodium 45 102.90550
 Rn Radon 86 220
 Ru Ruthenium 44 101.07
 S Sulfur 16 32.065
