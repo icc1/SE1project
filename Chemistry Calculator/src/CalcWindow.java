@@ -173,7 +173,7 @@ public class CalcWindow extends JFrame
 	    
 	    buttonPanel = new JPanel();
 	    buttonPanel.setLayout(new GridLayout(6, 5));
-	    buttonPanel.setPreferredSize(new Dimension(400,378));
+	    buttonPanel.setPreferredSize(new Dimension(450,378));
 	    createKeyRows();
 	    
 	    c.gridy = 2;
@@ -231,7 +231,7 @@ public class CalcWindow extends JFrame
 	    inputParLBttn.addActionListener(basic);
 	    inputParRBttn = new JButton(")");
 	    inputParRBttn.addActionListener(basic);
-	    utilBackspaceBttn = new JButton("<-");
+	    utilBackspaceBttn = new JButton("bksp");
 	    utilBackspaceBttn.addActionListener(new ActionListener()
     	{
     		@Override
