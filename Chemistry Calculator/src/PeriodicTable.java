@@ -22,7 +22,7 @@ public class PeriodicTable {
 	{
 		for(int i = 0; i < 118; i++)
 		{
-			if(elements[i].getShortName() == shortName)
+			if(elements[i].getShortName().equals(shortName))
 				return elements[i];
 		}
 		return null;
