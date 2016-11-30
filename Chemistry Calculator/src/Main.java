@@ -1,13 +1,30 @@
+import javax.swing.JFrame;
 
 public class Main {
 	
-	public PeriodicWindow p;
+	//public PeriodicWindow pw;
+	private static CalcWindow cw;
+	private static PeriodicWindow pw;
+	private static MolarMassWindow mm;
 	
 	public static void main(String[] args){
-		PeriodicTable p = new PeriodicTable();
-		CalcWindow c = new CalcWindow();
-		FormulaReader f = new FormulaReader();
-		System.out.println(f.getEquation("CH3CONHC6H4OC2H5"));
-		System.out.println(Calculator.eval(f.getEquation("CH3CONHC6H4OC2H5")));
+		PeriodicTable pt = new PeriodicTable();
+		cw = new CalcWindow();
+		pw = new PeriodicWindow();
+		mm = new MolarMassWindow();
 	}
+	
+	public static CalcWindow getCalcWindow()
+	{
+		return cw;
+	}
+	public static PeriodicWindow getPeriodicWindow()
+	{
+		return pw;
+	}
+	public static MolarMassWindow getMolarMassWindow()
+	{
+		return mm;
+	}
+	
 }

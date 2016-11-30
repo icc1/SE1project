@@ -7,7 +7,7 @@ public class ElementImporter {
 	{
 		try 
 		{
-			FileInputStream fin = new FileInputStream("elements.txt");
+			FileInputStream fin = new FileInputStream("elementsPrecision.txt");
 			Scanner fread = new Scanner(fin);
 			for(int i = 0; i < 118; i++)
 			{

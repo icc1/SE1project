@@ -25,6 +25,7 @@ public class PeriodicWindow extends JFrame
 	JLabel infoName;
 	JLabel infoAtomicNumber;
 	JLabel infoAtomicWeight;
+	JButton infoSendToMM;
 	
 	public PeriodicWindow()
 	{
@@ -174,6 +175,7 @@ public class PeriodicWindow extends JFrame
 		infoPanelConstraints.gridy = 0;
 		infoPanel = new JPanel();
 		infoPanel.setLayout(new GridBagLayout());
+		infoPanel.setPreferredSize(new Dimension(220, elementPanel.getHeight()));
 		
 		infoShortName = new JLabel("<HTML><b><u>  </u></b></HTML>");
 		infoShortName.setFont(new Font("Arial", Font.PLAIN, 48));
@@ -190,6 +192,16 @@ public class PeriodicWindow extends JFrame
 		infoAtomicWeight = new JLabel("<HTML><b>Atomic Weight:</b></HTML>");
 		infoAtomicWeight.setFont(infoPanelFont);
 		
+		infoSendToMM = new JButton("Molar Mass");
+		infoSendToMM.setFont(infoPanelFont);
+		infoSendToMM.addActionListener(new ActionListener()
+    	{
+    		@Override
+    		public void actionPerformed(ActionEvent e) {
+    			Main.getMolarMassWindow().input(infoShortName.getName());
+    		}
+    	});
+		
 		infoPanel.add(infoShortName, infoPanelConstraints);
 		
 		infoPanelConstraints.gridy = 1;
@@ -200,10 +212,15 @@ public class PeriodicWindow extends JFrame
 		
 		infoPanelConstraints.gridy = 3;
 		infoPanel.add(infoAtomicWeight, infoPanelConstraints);
+		
+		infoPanelConstraints.gridy = 4;
+		infoPanel.add(infoSendToMM, infoPanelConstraints);
+		
 	}
 	private void infoPanelGetInfo(int i)
 	{
 		infoShortName.setText("<HTML><b><u>  "+ PeriodicTable.getElement(i).getShortName() +"</u></b></HTML>");
+		infoShortName.setName(PeriodicTable.getElement(i).getShortName());
 		infoName.setText("<HTML><b> Name:</b>" + PeriodicTable.getElement(i).getFullName() + "</HTML>");
 		infoAtomicNumber.setText("<HTML><b> Atomic Number:</b>" + PeriodicTable.getElement(i).getAtomicNumber() + "</HTML>");
 		infoAtomicWeight.setText("<HTML><b> Atomic Weight:</b>" + PeriodicTable.getElement(i).getAtomicWeight() + "</HTML>");

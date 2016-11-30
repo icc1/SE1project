@@ -105,14 +105,13 @@ public class CalcWindow extends JFrame
 	    chemBar.add(chemMenu);
 	      
 	    //Initializing the chemistry menu items, adding their events and adding them to the menu
-	    PeriodicWindow p = new PeriodicWindow();
 	    periodicItem = new JMenuItem("Periodic Table");
 	    periodicItem.addActionListener(new ActionListener()
 	    	{
 	    		@Override
 	    		public void actionPerformed(ActionEvent e) {
-	    			if(!p.isVisible())
-	    				p.setVisible(true);
+	    			if(!Main.getMolarMassWindow().isVisible())
+	    				Main.getMolarMassWindow().setVisible(true);
 	    		}
 	    	});
 	    molarMassItem = new JMenuItem("Molar Mass Calculator");
@@ -120,7 +119,8 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//launch molar mass calculator
+    			if(!Main.getPeriodicWindow().isVisible())
+    				Main.getPeriodicWindow().setVisible(true);
     		}
     	});
 	    molecularWeightItem = new JMenuItem("Molecular Weight Calculator");
@@ -128,7 +128,7 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//launch molecular weight calculator
+    			//launch mw
     		}
     	});
 	    chemMenu.add(periodicItem);
@@ -145,7 +145,7 @@ public class CalcWindow extends JFrame
 	    
 	    calcScreen = new JTextField("");
 	    calcScreen.setPreferredSize(new Dimension(400, 70));
-	    calcScreen.setFont(new Font("SansSerif", Font.BOLD, 20));
+	    calcScreen.setFont(new Font("SansSerif", Font.BOLD, 25));
 	    calcScreen.addKeyListener(new KeyAdapter() {
 	    	   public void keyTyped(KeyEvent e) {
 	    		      char c = e.getKeyChar();
@@ -347,10 +347,13 @@ public class CalcWindow extends JFrame
 	
 	private String app(String base, String add)
 	{
-		StringBuilder screenStringBuilder = new StringBuilder();
-		screenStringBuilder.append(base);
-		screenStringBuilder.append(add);
-		return screenStringBuilder.toString();
+		return base + add;
+	}
+	
+	public void input(String in)
+	{
+		prevString = calcScreen.getText();
+		calcScreen.setText(app(calcScreen.getText(), in));
 	}
 	
 	private class GenericListener implements ActionListener 
@@ -358,8 +361,7 @@ public class CalcWindow extends JFrame
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() instanceof JButton) {
-				prevString = calcScreen.getText();
-				calcScreen.setText(app(calcScreen.getText(), ((JButton)e.getSource()).getText()));
+				input(((JButton)e.getSource()).getText());
             }
 			
 		}
