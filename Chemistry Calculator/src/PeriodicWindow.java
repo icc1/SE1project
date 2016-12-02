@@ -238,9 +238,9 @@ public class PeriodicWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			if(!Main.getMolarMassWindow().isVisible())
-    				Main.getMolarMassWindow().setVisible(true);
-    			Main.getMolarMassWindow().input(infoShortName.getName(), true);
+    			if(!Main.getMolecularWeightWindow().isVisible())
+    				Main.getMolecularWeightWindow().setVisible(true);
+    			Main.getMolecularWeightWindow().input(infoShortName.getName(), true);
     		}
     	});
 		

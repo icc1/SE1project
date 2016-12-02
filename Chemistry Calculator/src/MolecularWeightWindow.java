@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class MolarMassWindow extends JFrame
+public class MolecularWeightWindow extends JFrame
 {
 	private JLabel inputLabel;
 	private JLabel resultLabel;
@@ -24,9 +24,9 @@ public class MolarMassWindow extends JFrame
 	private FormulaReader formulaReader;
 	private double result;
 	
-	public MolarMassWindow()
+	public MolecularWeightWindow()
 	{
-		super("Molar Mass Calculator");
+		super("Molecular Weight Calculator");
 		
 		Font f = new Font("SansSerif", Font.PLAIN, 20);
 		formulaReader = new FormulaReader();
@@ -41,7 +41,7 @@ public class MolarMassWindow extends JFrame
 	    inputLabel.setFont(f);
 	    add(inputLabel);
 	    
-	    resultLabel = new JLabel("Molar Mass:");
+	    resultLabel = new JLabel("Molecular Weight:");
 	    resultLabel.setPreferredSize(new Dimension(225, 40));
 	    resultLabel.setFont(f);
 	    c.gridx = 1;
@@ -107,6 +107,6 @@ public class MolarMassWindow extends JFrame
 			resultField.setText("Error");
 		else
 			result = Calculator.eval(equation);
-			resultField.setText(String.format("= %1$.4f g", result));
+			resultField.setText(String.format("= %1$.4f AMU", result));
 	}
 }

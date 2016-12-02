@@ -93,7 +93,6 @@ public class CalcWindow extends JFrame
 		
 		//Setting up the main calculator frame
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setSize(400,600); 
 	    setLayout(new GridBagLayout());
 	    GridBagConstraints c = new GridBagConstraints();
 	    
@@ -128,7 +127,8 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//launch mw
+    			if(!Main.getMolecularWeightWindow().isVisible())
+    				Main.getMolecularWeightWindow().setVisible(true);
     		}
     	});
 	    chemMenu.add(periodicItem);

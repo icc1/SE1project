@@ -2,28 +2,34 @@ import javax.swing.JFrame;
 
 public class Main {
 	
-	private static CalcWindow cw;
-	private static PeriodicWindow pw;
-	private static MolarMassWindow mm;
+	private static CalcWindow calcWindowInstance;
+	private static PeriodicWindow periodicWindowInstance;
+	private static MolarMassWindow molarMassWindowInstance;
+	private static MolecularWeightWindow molecularWeightWindowInstance;
 	
 	public static void main(String[] args){
 		PeriodicTable pt = new PeriodicTable();
-		cw = new CalcWindow();
-		pw = new PeriodicWindow();
-		mm = new MolarMassWindow();
+		calcWindowInstance = new CalcWindow();
+		periodicWindowInstance = new PeriodicWindow();
+		molarMassWindowInstance = new MolarMassWindow();
+		molecularWeightWindowInstance = new MolecularWeightWindow();
 	}
 	
 	public static CalcWindow getCalcWindow()
 	{
-		return cw;
+		return calcWindowInstance;
 	}
 	public static PeriodicWindow getPeriodicWindow()
 	{
-		return pw;
+		return periodicWindowInstance;
 	}
 	public static MolarMassWindow getMolarMassWindow()
 	{
-		return mm;
+		return molarMassWindowInstance;
+	}
+	public static MolecularWeightWindow getMolecularWeightWindow()
+	{
+		return molecularWeightWindowInstance;
 	}
 	
 }
