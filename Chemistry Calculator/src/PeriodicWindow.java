@@ -209,7 +209,7 @@ public class PeriodicWindow extends JFrame
 		infoElementFamily = new JLabel("<HTML><b>Element Family:</b></HTML>");
 		infoElementFamily.setFont(infoPanelFont);
 		
-		infoEtymologyLabel = new JLabel("<HTML><b>Element Family:</b></HTML>");
+		infoEtymologyLabel = new JLabel("<HTML><b>Element Etymology:</b></HTML>");
 		infoEtymologyLabel.setFont(infoPanelFont);
 		
 		infoElementEtymology = new JTextArea(" ");
