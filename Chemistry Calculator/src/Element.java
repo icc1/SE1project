@@ -5,8 +5,9 @@ public class Element
     private int atomicNumber;
     private double atomicWeight;
     private int elementGroup;
-    private int elementPeriod;
+    private double elementPeriod;
     private String elementFamily;
+    private String elementEtymology;
 	
     public Element()
     {
@@ -14,6 +15,10 @@ public class Element
     	setShortName("");
     	setAtomicNumber(0);
     	setAtmoicWeight(0);
+    	setElementGroup(0);
+    	setElementPeriod(0);
+    	setElementFamily("");
+    	setElementEtymology("");
     }
     
     public String getFullName()
@@ -36,13 +41,17 @@ public class Element
     {
         return elementGroup;
     }
-    public int getElementPeriod()
+    public double getElementPeriod()
     {
         return elementPeriod;
     }
     public String getElementFamily()
     {
         return elementFamily;
+    }
+    public String getElementEtymology()
+    {
+    	return elementEtymology;
     }
     public void setFullName(String name)
     {
@@ -64,12 +73,16 @@ public class Element
     {
         elementGroup = group;
     }
-    public void setElementPeriod(int period)
+    public void setElementPeriod(double period)
     {
         elementPeriod = period;
     }
     public void setElementFamily(String family)
     {
         elementFamily = family;
+    }
+    public void setElementEtymology(String etymology)
+    {
+    	elementEtymology = etymology;
     }
 }

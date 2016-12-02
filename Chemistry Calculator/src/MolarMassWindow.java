@@ -21,7 +21,7 @@ public class MolarMassWindow extends JFrame
 	private JButton sendButton;
 	private JButton computeButton;
 	
-	private FormulaReader fr;
+	private FormulaReader formulaReader;
 	private double result;
 	
 	public MolarMassWindow()
@@ -29,7 +29,7 @@ public class MolarMassWindow extends JFrame
 		super("Molar Mass Calculator");
 		
 		Font f = new Font("SansSerif", Font.PLAIN, 20);
-		fr = new FormulaReader();
+		formulaReader = new FormulaReader();
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds (0, 550, 400, 600);
@@ -71,7 +71,7 @@ public class MolarMassWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			Main.getCalcWindow().input(String.format("%1$.4f", result));
+    			Main.getCalcWindow().input(String.format("%1$.4f", result), "screen");
     		}
     	});
 	    c.gridy = 2;
@@ -85,8 +85,7 @@ public class MolarMassWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			result = Calculator.eval(fr.getEquation(inputField.getText()));
-    			resultField.setText(String.format("= %1$.4f", result));
+    			compute();
     		}
     	});
 	    c.gridx = 1;
@@ -95,9 +94,19 @@ public class MolarMassWindow extends JFrame
 	    pack();
 	    setVisible(true);
 	}
-	
-	public void input(String in)
+	public void input(String in, boolean shouldCompute)
 	{
 		inputField.setText(inputField.getText()+in);
+		if(shouldCompute)
+			compute();
+	}
+	private void compute()
+	{
+		String equation = formulaReader.getEquation(inputField.getText());
+		if(equation.equals("Error"))
+			resultField.setText("Error");
+		else
+			result = Calculator.eval(equation);
+			resultField.setText(String.format("= %1$.4f", result));
 	}
 }

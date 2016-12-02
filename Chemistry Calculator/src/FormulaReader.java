@@ -19,13 +19,18 @@ public class FormulaReader
 					element.append(Character.toString(formula.charAt(i)));
 					i++;
 				}
-				equation.append(PeriodicTable.findElement(element.toString()).getAtomicWeight());
-				//equation.append(element.toString());
-				element.setLength(0);
-				if(i != formula.length() && !Character.isDigit(formula.charAt(i)) && formula.charAt(i) != ')') 
-					equation.append("+");
-				else if(i < formula.length() && Character.isDigit(formula.charAt(i)))
-					equation.append("*");
+				if(isError(element.toString()))
+					return "Error";
+				else
+				{
+					equation.append(PeriodicTable.findElement(element.toString()).getAtomicWeight());
+					//equation.append(element.toString());
+					element.setLength(0);
+					if(i != formula.length() && !Character.isDigit(formula.charAt(i)) && formula.charAt(i) != ')') 
+						equation.append("+");
+					else if(i < formula.length() && Character.isDigit(formula.charAt(i)))
+						equation.append("*");
+				}
 			}
 			if(i < formula.length() && Character.isDigit(formula.charAt(i)))
 			{
@@ -56,8 +61,16 @@ public class FormulaReader
 				if(Character.isDigit(formula.charAt(i)))
 					equation.append("*");
 			}
+			if(i < formula.length() && Character.isLowerCase(formula.charAt(i)))
+				return "Error";
 		}
 		
 		return equation.toString();
+	}
+	private boolean isError(String shortName)
+	{
+		if(PeriodicTable.hasElement(shortName))
+			return false;
+		else return true;
 	}
 }

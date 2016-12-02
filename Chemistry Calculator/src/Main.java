@@ -2,7 +2,6 @@ import javax.swing.JFrame;
 
 public class Main {
 	
-	//public PeriodicWindow pw;
 	private static CalcWindow cw;
 	private static PeriodicWindow pw;
 	private static MolarMassWindow mm;

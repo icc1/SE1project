@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class PeriodicWindow extends JFrame
 {
@@ -25,7 +27,14 @@ public class PeriodicWindow extends JFrame
 	JLabel infoName;
 	JLabel infoAtomicNumber;
 	JLabel infoAtomicWeight;
+	JLabel infoElementGroup;
+	JLabel infoElementPeriod;
+	JLabel infoElementFamily;
+	JLabel infoEtymologyLabel;
+	JTextArea infoElementEtymology;
+	
 	JButton infoSendToMM;
+	JButton infoSendToMW;
 	
 	public PeriodicWindow()
 	{
@@ -91,7 +100,6 @@ public class PeriodicWindow extends JFrame
 					constraints.gridwidth = 18;
 					constraints.fill = GridBagConstraints.BOTH;
 					elementPanel.add(miscLabels[0], constraints);
-					
 					j += 17;
 					resetConstraints();
 				}
@@ -115,6 +123,7 @@ public class PeriodicWindow extends JFrame
 					elementButton[k] = new JButton("<HTML>"+PeriodicTable.getElement(k).getAtomicNumber()+"<br>"+PeriodicTable.getElement(k).getShortName()+"</HTML>");
 					elementButton[k].setName(""+k);
 					elementButton[k].addActionListener(p);
+					colorSetter(k);
 					elementPanel.add(elementButton[k], constraints);
 					if(k == 55)//skip conditions due to radioactive elements
 					{
@@ -169,17 +178,16 @@ public class PeriodicWindow extends JFrame
 	private void infoPanelBuilder()
 	{
 		infoPanelConstraints = new GridBagConstraints();
-		infoPanelConstraints.fill = GridBagConstraints.BOTH;
+		infoPanelConstraints.fill = GridBagConstraints.HORIZONTAL;
 		
 		infoPanelConstraints.gridx = 0;
 		infoPanelConstraints.gridy = 0;
 		infoPanel = new JPanel();
 		infoPanel.setLayout(new GridBagLayout());
-		infoPanel.setPreferredSize(new Dimension(220, elementPanel.getHeight()));
 		
 		infoShortName = new JLabel("<HTML><b><u>  </u></b></HTML>");
 		infoShortName.setFont(new Font("Arial", Font.PLAIN, 48));
-		infoPanel.add(infoShortName);
+		infoShortName.setPreferredSize(new Dimension(250, 50));
 		
 		Font infoPanelFont = new Font("Arial", Font.PLAIN, 20);
 		
@@ -192,29 +200,87 @@ public class PeriodicWindow extends JFrame
 		infoAtomicWeight = new JLabel("<HTML><b>Atomic Weight:</b></HTML>");
 		infoAtomicWeight.setFont(infoPanelFont);
 		
+		infoElementGroup = new JLabel("<HTML><b>Element Group:</b></HTML>");
+		infoElementGroup.setFont(infoPanelFont);
+		
+		infoElementPeriod = new JLabel("<HTML><b>Element Period:</b></HTML>");
+		infoElementPeriod.setFont(infoPanelFont);
+		
+		infoElementFamily = new JLabel("<HTML><b>Element Family:</b></HTML>");
+		infoElementFamily.setFont(infoPanelFont);
+		
+		infoEtymologyLabel = new JLabel("<HTML><b>Element Family:</b></HTML>");
+		infoEtymologyLabel.setFont(infoPanelFont);
+		
+		infoElementEtymology = new JTextArea(" ");
+		infoElementEtymology.setPreferredSize(new Dimension(250, 200));
+		infoElementEtymology.setLineWrap(true);
+		infoElementEtymology.setWrapStyleWord(true);
+		infoElementEtymology.setBackground(null);
+		infoElementEtymology.setEditable(false);
+		infoElementEtymology.setFont(infoPanelFont);
+		
 		infoSendToMM = new JButton("Molar Mass");
 		infoSendToMM.setFont(infoPanelFont);
 		infoSendToMM.addActionListener(new ActionListener()
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			Main.getMolarMassWindow().input(infoShortName.getName());
+    			if(!Main.getMolarMassWindow().isVisible())
+    				Main.getMolarMassWindow().setVisible(true);
+    			Main.getMolarMassWindow().input(infoShortName.getName(), true);
     		}
     	});
 		
+		infoSendToMW = new JButton("Molecular Weight");
+		infoSendToMW.setFont(infoPanelFont);
+		infoSendToMW.addActionListener(new ActionListener()
+    	{
+    		@Override
+    		public void actionPerformed(ActionEvent e) {
+    			if(!Main.getMolarMassWindow().isVisible())
+    				Main.getMolarMassWindow().setVisible(true);
+    			Main.getMolarMassWindow().input(infoShortName.getName(), true);
+    		}
+    	});
+		
+		infoPanelConstraints.weightx = 250;
+		infoPanelConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
+		
+		int i = 0;
 		infoPanel.add(infoShortName, infoPanelConstraints);
 		
-		infoPanelConstraints.gridy = 1;
+		infoPanelConstraints.gridy = ++i;
 		infoPanel.add(infoName, infoPanelConstraints);
 		
-		infoPanelConstraints.gridy = 2;
+		infoPanelConstraints.gridy = ++i;
 		infoPanel.add(infoAtomicNumber, infoPanelConstraints);
 		
-		infoPanelConstraints.gridy = 3;
+		infoPanelConstraints.gridy = ++i;
 		infoPanel.add(infoAtomicWeight, infoPanelConstraints);
 		
-		infoPanelConstraints.gridy = 4;
+		infoPanelConstraints.gridy = ++i;
+		infoPanel.add(infoElementGroup, infoPanelConstraints);
+		
+		infoPanelConstraints.gridy = ++i;
+		infoPanel.add(infoElementPeriod, infoPanelConstraints);
+		
+		infoPanelConstraints.gridy = ++i;
+		infoPanel.add(infoElementFamily, infoPanelConstraints);
+		
+		infoPanelConstraints.gridy = ++i;
+		infoPanel.add(infoEtymologyLabel, infoPanelConstraints);
+		
+		infoPanelConstraints.weighty = 50;
+		infoPanelConstraints.gridy = ++i;
+		infoPanel.add(infoElementEtymology, infoPanelConstraints);
+		infoPanelConstraints.weighty = 0;
+		
+		infoPanelConstraints.gridy = ++i;
 		infoPanel.add(infoSendToMM, infoPanelConstraints);
+		
+		infoPanelConstraints.gridy = ++i;
+		infoPanel.add(infoSendToMW, infoPanelConstraints);
 		
 	}
 	private void infoPanelGetInfo(int i)
@@ -222,10 +288,38 @@ public class PeriodicWindow extends JFrame
 		infoShortName.setText("<HTML><b><u>  "+ PeriodicTable.getElement(i).getShortName() +"</u></b></HTML>");
 		infoShortName.setName(PeriodicTable.getElement(i).getShortName());
 		infoName.setText("<HTML><b> Name:</b>" + PeriodicTable.getElement(i).getFullName() + "</HTML>");
-		infoAtomicNumber.setText("<HTML><b> Atomic Number:</b>" + PeriodicTable.getElement(i).getAtomicNumber() + "</HTML>");
-		infoAtomicWeight.setText("<HTML><b> Atomic Weight:</b>" + PeriodicTable.getElement(i).getAtomicWeight() + "</HTML>");
+		infoAtomicNumber.setText("<HTML><b> Atomic Number: </b><br> " + PeriodicTable.getElement(i).getAtomicNumber() + "</HTML>");
+		infoAtomicWeight.setText("<HTML><b> Atomic Weight: </b><br> " + PeriodicTable.getElement(i).getAtomicWeight() + "</HTML>");
+		infoElementGroup.setText("<HTML><b> Element Group: </b><br> " + PeriodicTable.getElement(i).getElementGroup() + ".0</HTML>");
+		infoElementPeriod.setText("<HTML><b> Element Period: </b><br> " + PeriodicTable.getElement(i).getElementPeriod() + "</HTML>");
+		infoElementFamily.setText("<HTML><b> Element Family: </b><br> " + PeriodicTable.getElement(i).getElementFamily() + "</HTML>");
+		infoElementEtymology.setText(PeriodicTable.getElement(i).getElementEtymology());
+		
 	}
-	
+	private void colorSetter(int i)
+	{
+		String name = PeriodicTable.getElement(i).getElementFamily();
+		if(name.equals("Non Metals"))
+			elementButton[i].setBackground(new Color(204, 255, 153));
+		else if(name.equals("Nobel Gases"))
+			elementButton[i].setBackground(new Color(153, 204, 255));
+		else if(name.equals("Alkali Metals"))
+			elementButton[i].setBackground(new Color(255, 204, 0));
+		else if(name.equals("Alkaline Earth Metals"))
+			elementButton[i].setBackground(new Color(255, 255, 153));
+		else if(name.equals("Metalloids"))
+			elementButton[i].setBackground(new Color(102, 255, 204));
+		else if(name.equals("Halogens"))
+			elementButton[i].setBackground(new Color(153, 255, 204));
+		else if(name.equals("Other Metals"))
+			elementButton[i].setBackground(new Color(102, 204, 255));
+		else if(name.equals("Transition Metals"))
+			elementButton[i].setBackground(Color.pink);
+		else if(name.equals("Rare Earth Actinide"))
+			elementButton[i].setBackground(new Color(255, 204, 153));
+		else if(name.equals("Rare Earth Lanthanide"))
+			elementButton[i].setBackground(new Color(255, 204, 204));
+	}
 	private class PeriodicListener implements ActionListener 
 	{
 		@Override

@@ -27,4 +27,13 @@ public class PeriodicTable {
 		}
 		return null;
 	}
+	public static boolean hasElement(String shortName)
+	{
+		for(int i = 0; i < 118; i++)
+		{
+			if(elements[i].getShortName().equals(shortName))
+				return true;
+		}
+		return false;
+	}
 }

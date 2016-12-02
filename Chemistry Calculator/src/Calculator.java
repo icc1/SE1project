@@ -28,7 +28,10 @@ public class Calculator
 	        {
 	            nextChar();
 	            double x = parseExpression();
-	            if (pos < str.length()) throw new RuntimeException("Unexpected: " + (char)ch);
+	            if (pos < str.length())
+	            {
+	            	return 0;
+	            }
 	            return x;
 	        }
 

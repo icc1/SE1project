@@ -24,7 +24,7 @@ V Vanadium 23 50.9415 4 5.00 Transition-Metals Vanadis
 Cr Chromium 24 51.9961 4 6.00 Transition-Metals Greek chroma
 Mn Manganese 25 54.938045 4 7.00 Transition-Metals Latin magnes
 Fe Iron 26 55.845 4 8.00 Transition-Metals Latin ferrum
-Co Cobalt 27 58.933195 4 9.00 Transition-Metals from German kobold
+Co Cobalt 27 58.933195 4 9.00 Transition-Metals German kobold
 Ni Nickel 28 58.6934 4 10.00 Transition-Metals German kupfernickel
 Cu Copper 29 63.546 4 11.00 Transition-Metals Latin Cuprum
 Zn Zinc 30 65.409 4 12.00 Transition-Metals German zink
@@ -45,7 +45,7 @@ Ru Ruthenium 44 101.07 5 8.00 Transition-Metals Latin Ruthenia
 Rh Rhodium 45 102.90550 5 9.00 Transition-Metals Greek rhodon
 Pd Palladium 46 106.42 5 10.00 Transition-Metals Pallas (genitive Pallados)
 Ag Silver 47 107.8682 5 11.00 Transition-Metals Latin argentum
-Cd Cadmium 48 12.411 5 12.00 Transition-Metals from Greek kadmia
+Cd Cadmium 48 12.411 5 12.00 Transition-Metals Greek kadmia
 In Indium 49 114.818 5 13.00 Other-Metals indigo blue
 Sn Tin 50 118.710 5 14.00 Other-Metals Latin stannum
 Sb Antimony 51 121.760 5 15.00 Metalloids Latin stibium
@@ -80,27 +80,27 @@ Au Gold 79 196.966569 6 11.00 Transition-Metals Latin aurum
 Hg Mercury 80 200.59 6 12.00 Transition-Metals Latin hydrargyrum
 Tl Thallium 81 204.3833 6 13.00 Other-Metals Greek thallos
 Pb Lead 82 207.2 6 14.00 Other-Metals Latin plumbum
-Bi Bismuth 83 208.98040 6 15.00 Other-Metals from German wissmuth
+Bi Bismuth 83 208.98040 6 15.00 Other-Metals German wissmuth
 Po Polonium 84 210 6 16.00 Metalloids Poland
 At Astatine 85 210 6 17.00 Halogens Greek astatos
 Rn Radon 86 220 6 18.00 Nobel-Gases radium and emanation
 Fr Francium 87 223 7 1.00 Alkali-Metals France
 Ra Radium 88 226 7 2.00 Alkaline-Earth-Metals Latin radius
-Ac Actinium 89 227 7 3.01 Rare Earth Actinide from Greek aktinos
-Th Thorium 90 232.03806 7 3.02 Rare Earth Actinide Thor
-Pa Protactinium 91 231.03588 7 3.03 Rare Earth Actinide Greek protos and actinium
-U Uranium 92 238.02891 7 3.04 Rare Earth Actinide Uranus
-Np Neptunium 93 23] 7 3.05 Rare Earth Actinide Neptune
-Pu Plutonium 94 244 7 3.06 Rare Earth Actinide Pluto
-Am Americium 95 243 7 3.07 Rare Earth Actinide the Americas
-Cm Curium 96 247 7 3.08 Rare Earth Actinide Pierre and Marie Curie and the traditional -um ending
-Bk Berkelium 97 247 7 3.09 Rare Earth Actinide Berkeley, California
-Cf Californium 98 251 7 3.10 Rare Earth Actinide State and University of California
-Es Einsteinium 99 252 7 3.11 Rare Earth Actinide Albert Einstein
-Fm Fermium 100 257 7 3.12 Rare Earth Actinide Enrico Fermi
-Md Mendelevium 101 258 7 3.13 Rare Earth Actinide Dmitri Mendeleyev
-No Nobelium 102 259 7 3.14 Rare Earth Actinide Alfred Nobel
-Lr Lawrencium 103 262 7 3.15 Rare Earth Actinide Ernest O. Lawrence
+Ac Actinium 89 227 7 3.01 Rare-Earth-Actinide Greek aktinos
+Th Thorium 90 232.03806 7 3.02 Rare-Earth-Actinide Thor
+Pa Protactinium 91 231.03588 7 3.03 Rare-Earth-Actinide Greek protos and actinium
+U Uranium 92 238.02891 7 3.04 Rare-Earth-Actinide Uranus
+Np Neptunium 93 23 7 3.05 Rare-Earth-Actinide Neptune
+Pu Plutonium 94 244 7 3.06 Rare-Earth-Actinide Pluto
+Am Americium 95 243 7 3.07 Rare-Earth-Actinide the Americas
+Cm Curium 96 247 7 3.08 Rare-Earth-Actinide Pierre and Marie Curie and the traditional -um ending
+Bk Berkelium 97 247 7 3.09 Rare-Earth-Actinide Berkeley, California
+Cf Californium 98 251 7 3.10 Rare-Earth-Actinide State and University of California
+Es Einsteinium 99 252 7 3.11 Rare-Earth-Actinide Albert Einstein
+Fm Fermium 100 257 7 3.12 Rare-Earth-Actinide Enrico Fermi
+Md Mendelevium 101 258 7 3.13 Rare-Earth-Actinide Dmitri Mendeleyev
+No Nobelium 102 259 7 3.14 Rare-Earth-Actinide Alfred Nobel
+Lr Lawrencium 103 262 7 3.15 Rare-Earth-Actinide Ernest O. Lawrence
 Rf Rutherfordium 104 261 7 4.00 Transition-Metals Ernest Rutherford
 Db Dubnium 105 262 7 5.00 Transition-Metals Dubna, Russia
 Sg Seaborgium 106 266 7 6.00 Transition-Metals Glenn T. Seaborg

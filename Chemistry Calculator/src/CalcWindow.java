@@ -323,10 +323,10 @@ public class CalcWindow extends JFrame
     			//recall memory
     		}
     	});
-		num0Bttn = new JButton("0");
-		num0Bttn.addActionListener(basic);
 		inputDecBttn = new JButton(".");
 		inputDecBttn.addActionListener(basic);
+		num0Bttn = new JButton("0");
+		num0Bttn.addActionListener(basic);
 		utilEqualsBttn = new JButton("=");
 		utilEqualsBttn.setBackground(Color.YELLOW);
 		utilEqualsBttn.addActionListener(new ActionListener()
@@ -345,15 +345,20 @@ public class CalcWindow extends JFrame
 	    buttonPanel.add(operatorAddBttn);
 	}
 	
-	private String app(String base, String add)
+	private String append(String base, String add)
 	{
 		return base + add;
 	}
 	
-	public void input(String in)
+	public void input(String in, String destination)
 	{
-		prevString = calcScreen.getText();
-		calcScreen.setText(app(calcScreen.getText(), in));
+		if(destination.equals("screen"))
+		{
+			prevString = calcScreen.getText();
+			calcScreen.setText(append(calcScreen.getText(), in));
+		}
+		else if(destination.equals("result"))
+			resultArea.setText(append("= ", in));
 	}
 	
 	private class GenericListener implements ActionListener 
@@ -361,7 +366,7 @@ public class CalcWindow extends JFrame
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() instanceof JButton) {
-				input(((JButton)e.getSource()).getText());
+				input(((JButton)e.getSource()).getText(), "screen");
             }
 			
 		}
@@ -372,8 +377,8 @@ public class CalcWindow extends JFrame
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() instanceof JButton) {
 				prevString = calcScreen.getText();
-    			calcScreen.setText(app(calcScreen.getText(), ((JButton)e.getSource()).getText()));
-    			calcScreen.setText(app(calcScreen.getText(), "("));
+    			calcScreen.setText(append(calcScreen.getText(), ((JButton)e.getSource()).getText()));
+    			calcScreen.setText(append(calcScreen.getText(), "("));
             }
 			
 		}
