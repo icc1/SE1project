@@ -34,7 +34,7 @@ public class MolecularWeightWindow extends JFrame
 		formulaReader = new FormulaReader();
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds (0, 550, 400, 600);
+		setBounds (0, 720, 400, 600);
 	    setLayout(new GridBagLayout());
 	    GridBagConstraints c = new GridBagConstraints();
 	    
@@ -94,7 +94,6 @@ public class MolecularWeightWindow extends JFrame
 	    add(computeButton, c);
 	    
 	    pack();
-	    setVisible(true);
 	}
 	public void input(String in, boolean shouldCompute)
 	{

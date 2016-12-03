@@ -94,7 +94,6 @@ public class MolarMassWindow extends JFrame
 	    add(computeButton, c);
 	    
 	    pack();
-	    setVisible(true);
 	}
 	public void input(String in, boolean shouldCompute)
 	{

@@ -170,7 +170,6 @@ public class PeriodicWindow extends JFrame
 		infoPanelGetInfo(1);
 		
 		pack();
-		setVisible(true);
 	}
 	private void resetConstraints()
 	{
