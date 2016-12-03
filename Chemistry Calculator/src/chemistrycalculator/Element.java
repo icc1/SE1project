@@ -1,3 +1,5 @@
+package chemistrycalculator;
+
 public class Element 
 {
     private String nameFull;

@@ -1,3 +1,5 @@
+package chemistrycalculator;
+
 import java.io.StringReader;
 
 public class FormulaReader 

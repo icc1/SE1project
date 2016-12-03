@@ -1,3 +1,5 @@
+package chemistrycalculator;
+
 import java.lang.Math;
 
 public class Calculator 

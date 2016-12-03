@@ -1,3 +1,5 @@
+package chemistrycalculator;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
