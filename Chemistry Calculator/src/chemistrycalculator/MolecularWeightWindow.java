@@ -38,6 +38,7 @@ public class MolecularWeightWindow extends JFrame
 	    setLayout(new GridBagLayout());
 	    GridBagConstraints c = new GridBagConstraints();
 	    
+	    //the next 4 groups of code set up the molar mass calculator labels and input/result areas
 	    inputLabel = new JLabel("Formula:");
 	    inputLabel.setPreferredSize(new Dimension(225, 40));
 	    inputLabel.setFont(f);
@@ -66,10 +67,11 @@ public class MolecularWeightWindow extends JFrame
 	    c.gridx = 1;
 	    add(resultField, c);
 	    
+	    //the next two groups of code set up the molar mass calculator's buttons
 	    sendButton = new JButton("send to calculator");
 	    sendButton.setPreferredSize(new Dimension(225, 40));
 	    sendButton.setFont(f);
-	    sendButton.addActionListener(new ActionListener()
+	    sendButton.addActionListener(new ActionListener()//send to calculator button listener
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
@@ -83,7 +85,7 @@ public class MolecularWeightWindow extends JFrame
 	    computeButton = new JButton("compute");
 	    computeButton.setPreferredSize(new Dimension(225, 40));
 	    computeButton.setFont(f);
-	    computeButton.addActionListener(new ActionListener()
+	    computeButton.addActionListener(new ActionListener()//compute button listener
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
@@ -95,19 +97,19 @@ public class MolecularWeightWindow extends JFrame
 	    
 	    pack();
 	}
-	public void input(String in, boolean shouldCompute)
+	public void input(String in, boolean shouldCompute)//if shouldCompute is true, the input field is evaluated after new string is added
 	{
 		inputField.setText(inputField.getText()+in);
 		if(shouldCompute)
 			compute();
 	}
-	private void compute()
+	private void compute()//sends formula, gets double result
 	{
-		String equation = formulaReader.getEquation(inputField.getText());
-		if(equation.equals("Error"))
+		String equation = formulaReader.getEquation(inputField.getText());//gets equation from molecule formula
+		if(equation.equals("Error"))//checks for error
 			resultField.setText("Error");
 		else
-			result = Calculator.eval(equation);
+			result = Calculator.eval(equation);//sends equation to calculator for evaluation
 			resultField.setText(String.format("= %1$.4f AMU", result));
 	}
 }

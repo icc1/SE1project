@@ -68,7 +68,7 @@ public class PeriodicWindow extends JFrame
 			for(int j = 0; j < 18; j++)
 			{
 				constraints.gridx = j;
-				if(i == 0 && j == 1)
+				if(i == 0 && j == 1)//this block handles the insertion of whitespace in the periodic table
 				{
 					constraints.gridwidth = 16;
 					elementPanel.add(miscLabels[0], constraints);
@@ -119,7 +119,7 @@ public class PeriodicWindow extends JFrame
 					j += 2;
 					resetConstraints();
 				}
-				else if(k < 118)
+				else if(k < 118)//Inserts a button if no whitespace is to be inserted
 				{
 					
 					elementButton[k] = new JButton("<HTML>"+PeriodicTable.getElement(k).getAtomicNumber()+"<br>"+PeriodicTable.getElement(k).getShortName()+"</HTML>");
@@ -149,7 +149,7 @@ public class PeriodicWindow extends JFrame
 			}
 		}
 		
-		Font font = new Font("Arial", Font.PLAIN, 24);
+		Font font = new Font("Arial", Font.PLAIN, 24);//sets all fonts in the periodic table
 	    for (Component comp : elementPanel.getComponents()) {
 	        if (comp instanceof JButton) {
 	            ((JButton)comp).setFont(font);
@@ -171,12 +171,12 @@ public class PeriodicWindow extends JFrame
 		
 		pack();
 	}
-	private void resetConstraints()
+	private void resetConstraints()//resets gridbagconstraints
 	{
 		constraints.gridwidth = 1;
 		constraints.fill = GridBagConstraints.BOTH;
 	}
-	private void infoPanelBuilder()
+	private void infoPanelBuilder()//sets up info panel
 	{
 		infoPanelConstraints = new GridBagConstraints();
 		infoPanelConstraints.fill = GridBagConstraints.HORIZONTAL;
@@ -297,7 +297,7 @@ public class PeriodicWindow extends JFrame
 		infoElementEtymology.setText(PeriodicTable.getElement(i).getElementEtymology());
 		
 	}
-	private void colorSetter(int i)
+	private void colorSetter(int i)//sets periodic table colors
 	{
 		String name = PeriodicTable.getElement(i).getElementFamily();
 		if(name.equals("Non Metals"))

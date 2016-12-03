@@ -141,14 +141,15 @@ public class CalcWindow extends JFrame
 	    c.fill = GridBagConstraints.BOTH;
 	    add(chemBar, c);
 	    //Moving down from the menu bar
-	     
+	    //Beginning with the main window area, 
 	    screenPanel = new JPanel();
 	    screenPanel.setLayout(new GridBagLayout());
 	    
+	    //set up calculator screen
 	    calcScreen = new JTextField("");
 	    calcScreen.setPreferredSize(new Dimension(400, 70));
 	    calcScreen.setFont(new Font("SansSerif", Font.BOLD, 25));
-	    calcScreen.addKeyListener(new KeyAdapter() {
+	    calcScreen.addKeyListener(new KeyAdapter() {//set legal keyboard inputs
 	    	   public void keyTyped(KeyEvent e) {
 	    		      char c = e.getKeyChar();
 	    		      if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)
@@ -161,6 +162,7 @@ public class CalcWindow extends JFrame
 	    c.gridy = 0;
 	    screenPanel.add(calcScreen, c);
 	    
+	    //set up result display
 	    resultArea = new JTextField(" = ");
 	    resultArea.setEditable(false);
 	    resultArea.setBackground(null);
@@ -173,6 +175,7 @@ public class CalcWindow extends JFrame
 	    //screenPanel.setPreferredSize(new Dimension(400, 200));
 	    add(screenPanel, c);
 	    
+	    //set up button area and call function to populate button area
 	    buttonPanel = new JPanel();
 	    buttonPanel.setLayout(new GridLayout(6, 5));
 	    buttonPanel.setPreferredSize(new Dimension(450,378));
@@ -184,7 +187,7 @@ public class CalcWindow extends JFrame
 	    setVisible(true);
 	}
 	
-	private void createKeyRows()
+	private void createKeyRows()//calls individual button row builders
 	{
 		createKeyRow1();
 	    createKeyRow2();
@@ -212,7 +215,7 @@ public class CalcWindow extends JFrame
 	    functionTanBttn = new JButton("tan");
 	    functionTanBttn.addActionListener(func);
 	    undoButton = new JButton("undo");
-	    undoButton.addActionListener(new ActionListener()
+	    undoButton.addActionListener(new ActionListener() //reverts calculator screen to last state
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
@@ -234,10 +237,11 @@ public class CalcWindow extends JFrame
 	    inputParRBttn = new JButton(")");
 	    inputParRBttn.addActionListener(basic);
 	    utilBackspaceBttn = new JButton("bksp");
-	    utilBackspaceBttn.addActionListener(new ActionListener()
+	    utilBackspaceBttn.addActionListener(new ActionListener() //backspaces
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
+    			prevString = calcScreen.getText();
     			String s = calcScreen.getText();
     			if (s.length() != 0) {
     			      s = s.substring(0, s.length()-1);
@@ -299,7 +303,7 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//mem store
+    			mem = result;//stores result in memory
     		}
     	});
 		num1Bttn = new JButton("1");
@@ -322,7 +326,7 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			//recall memory
+    			input(""+mem, "screen");//recalls memory
     		}
     	});
 		inputDecBttn = new JButton(".");
@@ -335,7 +339,8 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			resultArea.setText(String.format(" = %1$.4f", Calculator.eval(calcScreen.getText())));
+    			result = Calculator.eval(calcScreen.getText());
+    			resultArea.setText(String.format(" = %1$.4f", result));
     		}
     	});
 		operatorAddBttn = new JButton("+");
@@ -347,12 +352,12 @@ public class CalcWindow extends JFrame
 	    buttonPanel.add(operatorAddBttn);
 	}
 	
-	private String append(String base, String add)
+	private String append(String base, String add)//returns base appended by add
 	{
 		return base + add;
 	}
 	
-	public void input(String in, String destination)
+	public void input(String in, String destination)//sends external or internal input to a location indicated by a string
 	{
 		if(destination.equals("screen"))
 		{
@@ -363,7 +368,7 @@ public class CalcWindow extends JFrame
 			resultArea.setText(append("= ", in));
 	}
 	
-	private class GenericListener implements ActionListener 
+	private class GenericListener implements ActionListener //generic non-function button handler
 	{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -373,7 +378,7 @@ public class CalcWindow extends JFrame
 			
 		}
 	}
-	private class FunctionListener implements ActionListener 
+	private class FunctionListener implements ActionListener  //function button handler
 	{
 		@Override
 		public void actionPerformed(ActionEvent e) {

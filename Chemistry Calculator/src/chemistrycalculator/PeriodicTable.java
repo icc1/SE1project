@@ -15,12 +15,12 @@ public class PeriodicTable {
 		e.elementArrayBuilder();
 	}
 	
-	public static Element getElement(int i)
+	public static Element getElement(int i)//returns element at location i
 	{
 		return elements[i];
 	}
 	
-	public static Element findElement(String shortName)
+	public static Element findElement(String shortName)//finds element by short name
 	{
 		for(int i = 0; i < 118; i++)
 		{
@@ -29,7 +29,7 @@ public class PeriodicTable {
 		}
 		return null;
 	}
-	public static boolean hasElement(String shortName)
+	public static boolean hasElement(String shortName)//checks if element exists
 	{
 		for(int i = 0; i < 118; i++)
 		{

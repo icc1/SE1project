@@ -9,7 +9,7 @@ public class ElementImporter {
 	{
 		try 
 		{
-			FileInputStream fin = new FileInputStream("elementsAll.txt");
+			FileInputStream fin = new FileInputStream("elementsAll.txt");//reads file, assigns values to element array
 			Scanner fread = new Scanner(fin);
 			for(int i = 0; i < 118; i++)
 			{
@@ -26,7 +26,6 @@ public class ElementImporter {
 		} 
 		catch (FileNotFoundException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
