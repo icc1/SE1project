@@ -109,8 +109,8 @@ public class CalcWindow extends JFrame
 	    	{
 	    		@Override
 	    		public void actionPerformed(ActionEvent e) {
-	    			if(!Main.getMolarMassWindow().isVisible())
-	    				Main.getMolarMassWindow().setVisible(true);
+	    			if(!Main.getPeriodicWindow().isVisible())
+	    				Main.getPeriodicWindow().setVisible(true);
 	    		}
 	    	});
 	    molarMassItem = new JMenuItem("Molar Mass Calculator");
@@ -118,8 +118,8 @@ public class CalcWindow extends JFrame
     	{
     		@Override
     		public void actionPerformed(ActionEvent e) {
-    			if(!Main.getPeriodicWindow().isVisible())
-    				Main.getPeriodicWindow().setVisible(true);
+    			if(!Main.getMolarMassWindow().isVisible())
+    				Main.getMolarMassWindow().setVisible(true);
     		}
     	});
 	    molecularWeightItem = new JMenuItem("Molecular Weight Calculator");
